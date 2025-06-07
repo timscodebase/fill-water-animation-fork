@@ -31,83 +31,49 @@
     />
     <meta name="twitter:image" content="opengraph.png" />
     <link rel="icon" href="favicon.ico" />
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" href="style.css" />
   </head>
+
   <body>
     <h1>Fill Water in Circle</h1>
-    <main>
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="wave _0"></div>
-        <div class="wave _0"></div>
-        <div class="wave _0"></div>
-        <div class="wave-below _0"></div>
-        <div class="desc _0">
-          <h2>Today</h2>
-          <p>
-            <b>0<span>%</span></b>
-          </p>
-        </div>
-      </div>
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="wave _25"></div>
-        <div class="wave _25"></div>
-        <div class="wave _25"></div>
-        <div class="wave-below _25"></div>
-        <div class="desc _25">
-          <h2>Today</h2>
-          <p>
-            <b>25<span>%</span></b>
-          </p>
-        </div>
-      </div>
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="wave _50"></div>
-        <div class="wave _50"></div>
-        <div class="wave _50"></div>
-        <div class="wave-below _50"></div>
-        <div class="desc _50">
-          <h2>Today</h2>
-          <p>
-            <b>50<span>%</span></b>
-          </p>
-        </div>
-      </div>
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="wave _75"></div>
-        <div class="wave _75"></div>
-        <div class="wave _75"></div>
-        <div class="wave-below _75"></div>
-        <div class="desc _75">
-          <h2>Today</h2>
-          <p>
-            <b>75<span>%</span></b>
-          </p>
-        </div>
-      </div>
-      <div class="circle-container">
-        <div class="circle"></div>
-        <div class="wave _100"></div>
-        <div class="wave _100"></div>
-        <div class="wave _100"></div>
-        <div class="wave-below _100"></div>
-        <div class="desc _100">
-          <h2>Today</h2>
-          <p>
-            <b>100<span>%</span></b>
-          </p>
-        </div>
-      </div>
-    </main>
+
+    <!-- Replace all circle containers with just one main container -->
+    <main id="circles"></main>
+
     <footer>
       <p>
         Created by
-        <a href="https://github.com/timscodebase" target="_blank" rel="noopener">
+        <a
+          href="https://github.com/timscodebase"
+          target="_blank"
+          rel="noopener"
+        >
           Tim Smith
         </a>
+      </p>
     </footer>
+
+    <script>
+      const percentages = [0, 25, 50, 75, 100];
+      const container = document.getElementById("circles");
+
+      percentages.forEach((perc) => {
+        const el = document.createElement("div");
+        el.className = "circle-container";
+
+        el.innerHTML = `
+          <div class="circle"></div>
+          <div class="wave _${perc}"></div>
+          <div class="wave _${perc}"></div>
+          <div class="wave _${perc}"></div>
+          <div class="wave-below _${perc}"></div>
+          <div class="desc _${perc}">
+            <h2>Today</h2>
+            <p><b>${perc}<span>%</span></b></p>
+          </div>
+        `;
+        container.appendChild(el);
+      });
+    </script>
   </body>
 </html>
