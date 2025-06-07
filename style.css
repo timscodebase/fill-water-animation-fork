@@ -1,3 +1,28 @@
+@layer root, layout;
+
+/*
+ * ROOT
+ */
+@layer root {
+  :root {
+    --white: #ffffff;
+    --primary-color: #3b46d3;
+    --secondary-color: #e9f5fe;
+    --wave-color: var(--primary-color);
+    --wave-below-color: var(--white);
+    --wave-opacity: 0.8;
+    --wave-border-color: var(--white);
+    --wave-border-width: 10px;
+    --wave-animation-duration: 7s;
+    --wave-animation-delay: 5s;
+    --ease-in: cubic-bezier(0.58, 0.42, 1, 1);
+    --ease-out: cubic-bezier(0, 0, 0.42, 0.58);
+
+    --font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+      'Lucida Sans', Arial, sans-serif;
+  }
+}
+
 /*
  * LAYOUT
  */
@@ -8,10 +33,10 @@ body {
   margin: 0;
   padding: 2em;
 
-  background-color: #e9f5fe;
-  color: #3b46d3;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
+  color: var(--wave-color);
+  font-family: var(--font-family);
 
   display: flex;
   flex-flow: column;
